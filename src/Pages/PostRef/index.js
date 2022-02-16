@@ -1,6 +1,46 @@
+import axios from "axios";
+import { useState } from "react";
+
 export function PostRef(){
+  const [form, setForm] = useState({
+    author: "",
+    title: "",
+    subtitle: "",
+    local: null,
+    revista: "",
+    fascicle: "",
+    volume: "",
+    month: "",
+    year: "",
+    initialPage: "",
+    finalPage: ""
+  });
+
+  function handleChange(event) {
+    setForm({ ...form, [event.target.name]: event.target.value });
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    for (let key in form) {
+      if (!form[key]) {
+        window.alert(`O campo ${key} foi preenchido incorretamente`);
+        return;
+      }
+    }
+
+    try {
+      await axios.post("https://ironrest.herokuapp.com/abenete", form);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+
     return (
-    <>
+    <div>
+    {/* Div com os textos informativos: */}
 
       <div className="mt-10 sm:mt-0">
         <div className="md:grid md:grid-cols-3 md:gap-6">
@@ -10,101 +50,172 @@ export function PostRef(){
               <p className="mt-1 text-sm text-gray-600">Por favor, preencha todos os campos para gerar a referência bibliográfica</p>
             </div>
           </div>
+
+      {/* Formulário: */}
+      
           <div className="mt-5 md:mt-0 md:col-span-2">
-            <form action="#" method="POST">
+            <form onSubmit={handleSubmit}>
               <div className="shadow overflow-hidden sm:rounded-md">
                 <div className="px-4 py-5 bg-white sm:p-6">
-                  <div className="grid grid-cols-6 gap-6">
-                    <div className="col-span-6 sm:col-span-3">
-                      <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
-                        First name
+                  <div className="grid grid-cols-3 gap-6">
+
+                    <div className="col-span-1 sm:col-span-1">
+                      <label htmlFor="author-name" className="block text-sm font-medium text-gray-700">
+                        Nome do autor
                       </label>
                       <input
                         type="text"
-                        name="first-name"
-                        id="first-name"
-                        autoComplete="given-name"
+                        name="author"
+                        id="author-name"
+                        value={form.author}
+                        onChange={handleChange}
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                       />
                     </div>
 
-                    <div className="col-span-6 sm:col-span-3">
-                      <label htmlFor="last-name" className="block text-sm font-medium text-gray-700">
-                        Last name
+                    <div className="col-span-2 sm:col-span-2">
+                      <label htmlFor="titulo-artigo" className="block text-sm font-medium text-gray-700">
+                        Título do artigo
+                      </label>
+                      
+                      <input
+                        type="text"
+                        name="title"
+                        id="titulo-artigo"
+                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        value={form.title}
+                        onChange={handleChange}
+                      />
+                    </div>
+
+                    <div className="col-span-1 sm:col-span-1">
+                      <label htmlFor="subtitle" className="block text-sm font-medium text-gray-700">
+                        Subtítulo do artigo
                       </label>
                       <input
                         type="text"
-                        name="last-name"
-                        id="last-name"
-                        autoComplete="family-name"
+                        name="subtitle"
+                        id="subtitle-artigo"
+                        value={form.subtitle}
+                        onChange={handleChange}
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                       />
                     </div>
 
-                    <div className="col-span-6 sm:col-span-4">
-                      <label htmlFor="email-address" className="block text-sm font-medium text-gray-700">
-                        Email address
+
+                    <div className="col-span-1 sm:col-span-1 ">
+                      <label htmlFor="revista-nome" className="block text-sm font-medium text-gray-700">
+                        Nome da Revista
                       </label>
                       <input
                         type="text"
-                        name="email-address"
-                        id="email-address"
-                        autoComplete="email"
+                        name="revista"
+                        id="revista-nome"
+                        value={form.revista}
+                        onChange={handleChange}
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                       />
                     </div>
 
-                    <div className="col-span-6">
-                      <label htmlFor="street-address" className="block text-sm font-medium text-gray-700">
-                        Street address
+                    <div className="col-span-1">
+                      <label htmlFor="local-city" className="block text-sm font-medium text-gray-700">
+                        Local (Cidade)
                       </label>
                       <input
                         type="text"
-                        name="street-address"
-                        id="street-address"
-                        autoComplete="street-address"
+                        name="local"
+                        id="local-city"
+                        value={form.local}
+                        onChange={handleChange}
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                       />
                     </div>
 
-                    <div className="col-span-6 sm:col-span-6 lg:col-span-2">
-                      <label htmlFor="city" className="block text-sm font-medium text-gray-700">
-                        City
+
+                    <div className="col-span-1 sm:col-span-1">
+                      <label htmlFor="fascicle-number" className="block text-sm font-medium text-gray-700">
+                        Número do Fascículo
                       </label>
                       <input
                         type="text"
-                        name="city"
-                        id="city"
-                        autoComplete="address-level2"
+                        name="fascicle"
+                        id="fascicle-number"
+                        value={form.fascicle}
+                        onChange={handleChange}
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                       />
                     </div>
 
-                    <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-                      <label htmlFor="region" className="block text-sm font-medium text-gray-700">
-                        State / Province
+                    <div className="col-span-1 sm:col-span-1">
+                      <label htmlFor="volume-number" className="block text-sm font-medium text-gray-700">
+                        Número do volume
                       </label>
                       <input
                         type="text"
-                        name="region"
-                        id="region"
-                        autoComplete="address-level1"
+                        name="volume"
+                        id="volume-number"
+                        value={form.volume}
+                        onChange={handleChange}
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                       />
                     </div>
 
-                    <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-                      <label htmlFor="postal-code" className="block text-sm font-medium text-gray-700">
-                        ZIP / Postal code
+                    <div className="col-span-1 sm:col-span-1">
+                      <label htmlFor="month" className="block text-sm font-medium text-gray-700">
+                        Mês
                       </label>
                       <input
                         type="text"
-                        name="postal-code"
-                        id="postal-code"
-                        autoComplete="postal-code"
+                        name="month"
+                        id="month"
+                        value={form.month}
+                        onChange={handleChange}
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                       />
                     </div>
+
+                    <div className="col-span-1 sm:col-span-1">
+                      <label htmlFor="year" className="block text-sm font-medium text-gray-700">
+                        Ano
+                      </label>
+                      <input
+                        type="text"
+                        name="year"
+                        id="year"
+                        value={form.year}
+                        onChange={handleChange}
+                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                      />
+                    </div>
+
+                    <div className="col-span-1 sm:col-span-1">
+                      <label htmlFor="initial-page" className="block text-sm font-medium text-gray-700">
+                        Página Inicial
+                      </label>
+                      <input
+                        type="text"
+                        name="initialPage"
+                        id="initial-page"
+                        value={form.initialPage}
+                        onChange={handleChange}
+                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                      />
+                    </div>
+
+                    <div className="col-span-1 sm:col-span-1">
+                      <label htmlFor="final-page" className="block text-sm font-medium text-gray-700">
+                        Página final
+                      </label>
+                      <input
+                        type="text"
+                        name="finalPage"
+                        id="final-page"
+                        value={form.finalPage}
+                        onChange={handleChange}
+                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                      />
+                    </div>
+
                   </div>
                 </div>
                 <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
@@ -120,6 +231,6 @@ export function PostRef(){
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
