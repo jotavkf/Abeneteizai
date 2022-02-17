@@ -6,7 +6,7 @@ export function PostRef(){
     author: "",
     title: "",
     subtitle: "",
-    local: null,
+    local: "",
     revista: "",
     fascicle: "",
     volume: "",
@@ -37,7 +37,7 @@ export function PostRef(){
         author: "",
         title: "",
         subtitle: "",
-        local: null,
+        local: "",
         revista: "",
         fascicle: "",
         volume: "",
@@ -53,7 +53,7 @@ export function PostRef(){
 
 
     return (
-    <div className="pt-20">
+    <div className="pt-5">
     {/* Div com os textos informativos: */}
 
       <div className="mt-10 sm:mt-0">
@@ -71,9 +71,9 @@ export function PostRef(){
             <form onSubmit={handleSubmit}>
               <div className="shadow overflow-hidden sm:rounded-md">
                 <div className="px-4 py-5 bg-white sm:p-6">
-                  <div className="grid grid-cols-6 gap-6">
+                  <div className="grid grid-cols-10 gap-6">
 
-                    <div className="col-span-2 sm:col-span-2">
+                    <div className="col-span-10 sm:col-span-2">
                       <label htmlFor="author-name" className="block text-sm font-medium text-gray-700">
                         Nome do autor
                       </label>
@@ -87,7 +87,7 @@ export function PostRef(){
                       />
                     </div>
 
-                    <div className="col-span-3 sm:col-span-2">
+                    <div className="col-span-10 sm:col-span-4">
                       <label htmlFor="titulo-artigo" className="block text-sm font-medium text-gray-700">
                         Título do artigo
                       </label>
@@ -102,7 +102,7 @@ export function PostRef(){
                       />
                     </div>
 
-                    <div className="col-span-3 sm:col-span-2">
+                    <div className="col-span-10 sm:col-span-4">
                       <label htmlFor="subtitle" className="block text-sm font-medium text-gray-700">
                         Subtítulo do artigo
                       </label>
@@ -117,7 +117,7 @@ export function PostRef(){
                     </div>
 
 
-                    <div className="col-span-2 sm:col-span-1 ">
+                    <div className="col-span-5 sm:col-span-2">
                       <label htmlFor="revista-nome" className="block text-sm font-medium text-gray-700">
                         Nome da Revista
                       </label>
@@ -131,7 +131,7 @@ export function PostRef(){
                       />
                     </div>
 
-                    <div className="col-span-1 sm:col-span-1">
+                    <div className="col-span-5 sm:col-span-2">
                       <label htmlFor="local-city" className="block text-sm font-medium text-gray-700">
                         Local (Cidade)
                       </label>
@@ -146,9 +146,9 @@ export function PostRef(){
                     </div>
 
 
-                    <div className="col-span-1 sm:col-span-1">
+                    <div className="col-span-2 sm:col-span-1">
                       <label htmlFor="fascicle-number" className="block text-sm font-medium text-gray-700">
-                        Número do Fascículo
+                        Fascículo
                       </label>
                       <input
                         type="text"
@@ -160,9 +160,9 @@ export function PostRef(){
                       />
                     </div>
 
-                    <div className="col-span-1 sm:col-span-1">
+                    <div className="col-span-2 sm:col-span-1">
                       <label htmlFor="volume-number" className="block text-sm font-medium text-gray-700">
-                        Número do volume
+                        Volume
                       </label>
                       <input
                         type="text"
@@ -174,7 +174,7 @@ export function PostRef(){
                       />
                     </div>
 
-                    <div className="col-span-1 sm:col-span-1">
+                    <div className="col-span-2 sm:col-span-1">
                       <label htmlFor="month" className="block text-sm font-medium text-gray-700">
                         Mês
                       </label>
@@ -188,7 +188,7 @@ export function PostRef(){
                       />
                     </div>
 
-                    <div className="col-span-1 sm:col-span-1">
+                    <div className="col-span-2 sm:col-span-1">
                       <label htmlFor="year" className="block text-sm font-medium text-gray-700">
                         Ano
                       </label>
@@ -202,7 +202,7 @@ export function PostRef(){
                       />
                     </div>
 
-                    <div className="col-span-1 sm:col-span-1">
+                    <div className="col-span-3 sm:col-span-1">
                       <label htmlFor="initial-page" className="block text-sm font-medium text-gray-700">
                         Página Inicial
                       </label>
@@ -216,7 +216,7 @@ export function PostRef(){
                       />
                     </div>
 
-                    <div className="col-span-1 sm:col-span-1">
+                    <div className="col-span-3 sm:col-span-1">
                       <label htmlFor="final-page" className="block text-sm font-medium text-gray-700">
                         Página final
                       </label>

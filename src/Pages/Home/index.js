@@ -23,13 +23,11 @@ export default function Example() {
               <nav className="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
                 <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
                   <div className="flex items-center justify-between w-full md:w-auto">
-                    <Link to="/">
                       <img
-                        className="h-15 w-auto sm:h-12"
+                        className="h-13 w-auto sm:h-20"
                         src="https://seeklogo.com/images/A/abnt-logo-BE089ABB49-seeklogo.com.png"
                         alt="ABNT"
                       />
-                    </Link>
                 </div>
                 </div>
               </nav>
