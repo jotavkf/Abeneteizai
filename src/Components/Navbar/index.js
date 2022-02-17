@@ -1,6 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Link } from "react-router-dom";
-import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
 const navigation = [
@@ -36,9 +36,8 @@ export default function Navbar() {
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
-                    {navigation.map((item) => (
+                    {navigation.map((item) => (<div key={item.name}>
                       <Link
-            key={item.name}
             className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
@@ -48,7 +47,7 @@ export default function Navbar() {
             to={item.href}
           >
             {item.name}
-          </Link>
+          </Link></div>
                     ))}
                   </div>
                 </div>
@@ -58,7 +57,7 @@ export default function Navbar() {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
+              {navigation.map((item) => (<div key={item.name}>
                 <Link to={item.href}><Disclosure.Button
                   key={item.name}
                   as="a"
@@ -69,7 +68,7 @@ export default function Navbar() {
                   aria-current={item.current ? 'page' : undefined}
                 >
                   {item.name}
-                </Disclosure.Button></Link>
+                </Disclosure.Button></Link></div>
               ))}
             </div>
           </Disclosure.Panel>

@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Modal from "../../Components/Modal"
 
 export default function Coleção(props){
 
+    
     const [refs, setRefs] = useState([]);
     const [rerender, setRerender] = useState(true);
 
@@ -127,13 +129,9 @@ export default function Coleção(props){
         </h2>
         <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
           <div className="ml-3 inline-flex rounded-md shadow">
-            <button
-            type="button"
-              href="#"
-              className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50"
-            >
-              Exportar
-            </button>
+            
+              <Modal/>
+            
           </div>
         </div>
       </div>
