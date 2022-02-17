@@ -31,7 +31,21 @@ export function PostRef(){
     }
 
     try {
-      await axios.post("https://ironrest.herokuapp.com/abenete", form);
+      await axios
+      .post("https://ironrest.herokuapp.com/abenete", form)
+      .then(setForm({
+        author: "",
+        title: "",
+        subtitle: "",
+        local: null,
+        revista: "",
+        fascicle: "",
+        volume: "",
+        month: "",
+        year: "",
+        initialPage: "",
+        finalPage: ""
+      }))
     } catch (error) {
       console.error(error);
     }
@@ -39,13 +53,13 @@ export function PostRef(){
 
 
     return (
-    <div>
+    <div className="pt-20">
     {/* Div com os textos informativos: */}
 
       <div className="mt-10 sm:mt-0">
-        <div className="md:grid md:grid-cols-3 md:gap-6">
-          <div className="md:col-span-1">
-            <div className="pt-20 px-4 ">
+        <div className="md:grid md:grid-rows md:gap-6">
+          <div className="md:col-span">
+            <div className="pt-0 px-4 ">
               <h3 className="text-lg font-medium leading-6 text-gray-900">Informações do artigo utilizado</h3>
               <p className="mt-1 text-sm text-gray-600">Por favor, preencha todos os campos para gerar a referência bibliográfica</p>
             </div>
@@ -57,9 +71,9 @@ export function PostRef(){
             <form onSubmit={handleSubmit}>
               <div className="shadow overflow-hidden sm:rounded-md">
                 <div className="px-4 py-5 bg-white sm:p-6">
-                  <div className="grid grid-cols-3 gap-6">
+                  <div className="grid grid-cols-6 gap-6">
 
-                    <div className="col-span-1 sm:col-span-1">
+                    <div className="col-span-2 sm:col-span-2">
                       <label htmlFor="author-name" className="block text-sm font-medium text-gray-700">
                         Nome do autor
                       </label>
@@ -73,7 +87,7 @@ export function PostRef(){
                       />
                     </div>
 
-                    <div className="col-span-2 sm:col-span-2">
+                    <div className="col-span-3 sm:col-span-2">
                       <label htmlFor="titulo-artigo" className="block text-sm font-medium text-gray-700">
                         Título do artigo
                       </label>
@@ -88,7 +102,7 @@ export function PostRef(){
                       />
                     </div>
 
-                    <div className="col-span-1 sm:col-span-1">
+                    <div className="col-span-3 sm:col-span-2">
                       <label htmlFor="subtitle" className="block text-sm font-medium text-gray-700">
                         Subtítulo do artigo
                       </label>
@@ -103,7 +117,7 @@ export function PostRef(){
                     </div>
 
 
-                    <div className="col-span-1 sm:col-span-1 ">
+                    <div className="col-span-2 sm:col-span-1 ">
                       <label htmlFor="revista-nome" className="block text-sm font-medium text-gray-700">
                         Nome da Revista
                       </label>
@@ -117,7 +131,7 @@ export function PostRef(){
                       />
                     </div>
 
-                    <div className="col-span-1">
+                    <div className="col-span-1 sm:col-span-1">
                       <label htmlFor="local-city" className="block text-sm font-medium text-gray-700">
                         Local (Cidade)
                       </label>
