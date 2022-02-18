@@ -81,6 +81,7 @@ export function PostRef(){
                         type="text"
                         name="author"
                         id="author-name"
+                        placeholder="João Silva"
                         value={form.author}
                         onChange={handleChange}
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -95,6 +96,7 @@ export function PostRef(){
                       <input
                         type="text"
                         name="title"
+                        placeholder="Um estudo sobre como títulos podem ser longos"
                         id="titulo-artigo"
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                         value={form.title}
@@ -110,6 +112,7 @@ export function PostRef(){
                         type="text"
                         name="subtitle"
                         id="subtitle-artigo"
+                        placeholder="Os subtítulos podem ser maiores ainda"
                         value={form.subtitle}
                         onChange={handleChange}
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -125,6 +128,7 @@ export function PostRef(){
                         type="text"
                         name="revista"
                         id="revista-nome"
+                        placeholder="Ironhacker"
                         value={form.revista}
                         onChange={handleChange}
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -139,6 +143,7 @@ export function PostRef(){
                         type="text"
                         name="local"
                         id="local-city"
+                        placeholder="São Paulo"
                         value={form.local}
                         onChange={handleChange}
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -153,6 +158,7 @@ export function PostRef(){
                       <input
                         type="text"
                         name="fascicle"
+                        placeholder="1"
                         id="fascicle-number"
                         value={form.fascicle}
                         onChange={handleChange}
@@ -168,6 +174,7 @@ export function PostRef(){
                         type="text"
                         name="volume"
                         id="volume-number"
+                        placeholder="2"
                         value={form.volume}
                         onChange={handleChange}
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -182,6 +189,7 @@ export function PostRef(){
                         type="text"
                         name="month"
                         id="month"
+                        placeholder="1-12"
                         value={form.month}
                         onChange={handleChange}
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -196,6 +204,7 @@ export function PostRef(){
                         type="text"
                         name="year"
                         id="year"
+                        placeholder="2022"
                         value={form.year}
                         onChange={handleChange}
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -210,6 +219,7 @@ export function PostRef(){
                         type="text"
                         name="initialPage"
                         id="initial-page"
+                        placeholder="0"
                         value={form.initialPage}
                         onChange={handleChange}
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -224,6 +234,7 @@ export function PostRef(){
                         type="text"
                         name="finalPage"
                         id="final-page"
+                        placeholder="30"
                         value={form.finalPage}
                         onChange={handleChange}
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
