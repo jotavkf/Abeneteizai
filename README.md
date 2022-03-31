@@ -4,6 +4,6 @@ Abeneteizaí é um gerenciador de referências bibliográficas para os estudante
 
 > [Apresentação do projeto](https://www.canva.com/design/DAE4t-gv1-Q/Vx3bnVd0tJ_rvTUASezcMA/view?utm_content=DAE4t-gv1-Q&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
 
-> [Deploy do projeto](https://Abeneteizaí.netlify.app/)
+> [Deploy do projeto](https://abeneteizai.netlify.app/)
 
 
